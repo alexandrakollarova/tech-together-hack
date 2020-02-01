@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Funnels from './Funnels';
+import Services from './Services';
 
 export default class Home extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Home extends Component {
         <Header />
         <Main />
         <Funnels />
+        <Services />
       </div>
     );
   }

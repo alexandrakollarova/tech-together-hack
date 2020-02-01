@@ -9,10 +9,13 @@ class Header extends Component {
   render() {
     return (
       <nav className='main-nav'>
+        <ul className='logo'>
+          <li>Momba</li>
+        </ul>
+
         <ul>
-          <li className='logo'>Momba</li>
           <li>Resources</li>
-          <li className='main-nav-li'>Provider Directory</li>
+          <li>Provider Directory</li>
           <li>News & Blog</li>
           <li>Log in</li>
           <li>Sign up free</li>

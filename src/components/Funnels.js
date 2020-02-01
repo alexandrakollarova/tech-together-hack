@@ -12,18 +12,29 @@ class Funnels extends Component {
 
         <ul>
           <li>
-            <h2>data</h2>
-            <p>data</p>
+            <h2>1/7</h2>
+            <p>moms suffer from
+            <br />
+              postpartum depression
+            </p>
           </li>
 
           <li>
-            <h2>data</h2>
-            <p>data</p>
+            <h2>600,000</h2>
+            <p>postpartum depression
+              <br />
+              diagnosis each year
+            </p>
           </li>
 
           <li>
-            <h2>data</h2>
-            <p>data</p>
+            <h2>80%</h2>
+            <p>of women experience the
+            <br />
+              'baby blues' after giving
+            <br />
+              birth
+            </p>
           </li>
         </ul>
       </div>

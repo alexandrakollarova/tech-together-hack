@@ -1,11 +1,12 @@
-body {
-
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+ margin: 20px;
+ font-family: 'Open Sans', sans-serif;
 }
 
 .main-nav ul {
@@ -16,16 +17,22 @@ body {
 }
 
 .main-nav li {
-  margin: 10px;
+  margin: 20px;
 }
 
 .main-nav .logo {
-  margin: 10px;
   float: left;
 }
 
 main {
   clear: both;
+  padding-top: 150px;
+  color: grey;
+}
+
+button {
+  border-radius: 10px;
+  border-style: none;
 }
 
 .funnels h3 {
@@ -37,4 +44,12 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.services-headline {
+  float: left;
+}
+
+.services-list {
+  float: right;
 }
