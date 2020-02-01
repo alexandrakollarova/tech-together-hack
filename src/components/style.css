@@ -5,7 +5,6 @@
 }
 
 body {
- margin: 20px;
  font-family: 'Open Sans', sans-serif;
 }
 
@@ -14,10 +13,15 @@ body {
   display: flex;
   flex-direction: row;
   float: right;
+  margin-top: 30px;
+}
+
+.main-nav p, .main-nav h2 {
+  font-size: 25px;
 }
 
 .main-nav li {
-  margin: 20px;
+  margin: 30px 50px;
 }
 
 .main-nav .logo {
@@ -28,22 +32,34 @@ main {
   clear: both;
   padding-top: 150px;
   color :#606060;
+  padding-left: 20px;
 }
 
-button {
+.btn-how-it-works {
   border-radius: 30px;
   border-style: none;
   background-color: inherit;
-  padding: 15px;
+  padding: 10px 25px;
   border: 2px solid #7B7BFF;
-  color: #606060
+  color: #606060;
+  margin-top: 30px;
+}
+
+.btn-sign-up {
+  border-radius: 30px;
+  border-style: none;
+  background-color: #7B7BFF;
+  padding: 10px 25px;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .funnels {
   padding: 200px;
 }
 
-.funnels h3 {
+.funnels h1 {
   text-align: center;
 }
 
@@ -52,6 +68,11 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding-top: 50px;
+}
+
+.funnels li {
+  text-align: center;
 }
 
 .services-headline {

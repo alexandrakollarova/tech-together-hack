@@ -13,10 +13,10 @@ class Main extends Component {
           and personal guide for postpartum
         </h1>
 
-        <button>
-          <h3>
+        <button type='button' className='btn-how-it-works'>
+          <h2>
             How it works
-          </h3>
+          </h2>
         </button>
       </main>
     );

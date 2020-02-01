@@ -8,7 +8,7 @@ class Funnels extends Component {
   render() {
     return (
       <div className='funnels'>
-        <h3>Did you know?</h3>
+        <h1>Did you know?</h1>
 
         <ul>
           <li>
