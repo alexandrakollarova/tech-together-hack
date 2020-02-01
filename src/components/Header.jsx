@@ -11,35 +11,35 @@ class Header extends Component {
       <nav className='main-nav'>
         <ul className='logo'>
           <li>
-            <h2>
-              Momba
+            <h2 style={{ color: 'black' }}>
+              Momba <span>.</span>
             </h2>
           </li>
         </ul>
 
         <ul>
           <li>
-            <p>Resources</p>
+            <h2>Resources</h2>
           </li>
           <li>
-            <p>
+            <h2>
               Provider Directory
-            </p>
+            </h2>
           </li>
           <li>
-            <p>
+            <h2>
               News & Blog
-            </p>
+            </h2>
           </li>
           <li>
-            <p>
+            <h2>
               Log in
-            </p>
+            </h2>
           </li>
           <li className='btn-sign-up' style={{ marginTop: '20px' }}>
-            <p>
+            <h2 style={{ color: 'white' }}>
               Sign up free
-            </p>
+            </h2>
           </li>
         </ul>
       </nav>
