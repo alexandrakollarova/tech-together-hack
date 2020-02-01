@@ -1,0 +1,40 @@
+body {
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+
+.main-nav li {
+  margin: 10px;
+}
+
+.main-nav .logo {
+  margin: 10px;
+  float: left;
+}
+
+main {
+  clear: both;
+}
+
+.funnels h3 {
+  text-align: center;
+}
+
+.funnels ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

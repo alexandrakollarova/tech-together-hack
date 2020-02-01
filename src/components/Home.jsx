@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Header from './Header';
+import Main from './Main';
+import Funnels from './Funnels';
 
-const Home = (props) => (
-  <div className='home'>
-    Home
-  </div>
-)
+export default class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-export default Home;
+  render() {
+    return (
+      <div>
+        <Header />
+        <Main />
+        <Funnels />
+      </div>
+    );
+  }
+}
+
