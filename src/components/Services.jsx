@@ -25,7 +25,11 @@ class Services extends Component {
             <li>Providers taht tailor to your own words</li>
             <li>Unique daily exercise to enhance mental health</li>
           </ul>
-          <button>Explore our services</button>
+          <button type='button' className='btn-explore'>
+            <p>
+              Explore our services
+            </p>
+          </button>
         </div>
       </div>
     );

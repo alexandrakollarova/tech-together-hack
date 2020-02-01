@@ -5,7 +5,11 @@
 }
 
 body {
+<<<<<<< HEAD
   font-family: "Open Sans", sans-serif;
+=======
+ font-family: 'Arial', Helvetica, sans-serif;
+>>>>>>> bd7972a4ebbaf6d67ee3e00dd2794da9f4e33a3b
 }
 
 .main-nav ul {
@@ -13,27 +17,49 @@ body {
   display: flex;
   flex-direction: row;
   float: right;
-  margin-top: 30px;
+  margin: 30px 50px;
+  margin-left: 100px;
 }
 
+<<<<<<< HEAD
 .main-nav p,
 .main-nav h2 {
   font-size: 25px;
+=======
+.main-nav h2 {
+  color :#606060;
+>>>>>>> bd7972a4ebbaf6d67ee3e00dd2794da9f4e33a3b
 }
 
 .main-nav li {
-  margin: 30px 50px;
+  margin-top: 30px;
+  margin-right: 50px;
 }
 
 .main-nav .logo {
   float: left;
+  font-size: 25px;
+  margin-top: 20px
+}
+
+.logo span {
+  color: #7B7BFF;
+  font-size: 70px;
+  position: absolute;
+  top: 15px;
 }
 
 main {
   clear: both;
+<<<<<<< HEAD
   padding-top: 50px;
   color: #606060;
   padding-left: 20px;
+=======
+  padding-top: 150px;
+  color :#606060;
+  padding-left: 100px;
+>>>>>>> bd7972a4ebbaf6d67ee3e00dd2794da9f4e33a3b
 }
 
 .btn-how-it-works {
@@ -56,12 +82,26 @@ main {
   font-size: inherit;
 }
 
+.btn-explore {
+  border-radius: 30px;
+  border-style: none;
+  background-color: white;
+  padding: 10px 25px;
+  color: #7B7BFF;
+  font-family: inherit;
+  font-size: inherit;
+  margin-top: 50px;
+  margin-left: 270px;
+  font-weight: 600;
+}
+
 .funnels {
   padding: 200px;
 }
 
 .funnels h1 {
   text-align: center;
+  font-size: 35px;
 }
 
 .funnels ul {
@@ -69,19 +109,49 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 50px;
+  padding-top: 70px;
+  text-align: center;
 }
 
-.funnels li {
-  text-align: center;
+.funnels li h2 {
+  font-size: 40px;
+}
+
+.funnels li p {
+  font-size: 20px;
+  padding-top: 20px;
 }
 
 .services-headline {
   float: left;
+  width: 50%;
+  height: 500px;
+  color: #7B7BFF;
+  padding-left: 150px;
+  padding-top: 100px;
+}
+
+.services-headline h2 {
+  font-size: 100px;
 }
 
 .services-list {
   float: right;
+  background-color: #7B7BFF;
+  width: 50%;
+  height: 500px;
+  margin-bottom: 300px;
+}
+
+.services-list ul {
+  color: white;
+  font-size: 22px;
+  margin-left: 150px;
+  padding-top: 80px;
+}
+
+.services-list li {
+  padding: 10px
 }
 
 .Container {
