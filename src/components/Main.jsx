@@ -13,7 +13,11 @@ class Main extends Component {
           and personal guide for postpartum
         </h1>
 
-        <button>How it works</button>
+        <button>
+          <h3>
+            How it works
+          </h3>
+        </button>
       </main>
     );
   }
