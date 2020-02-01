@@ -10,15 +10,37 @@ class Header extends Component {
     return (
       <nav className='main-nav'>
         <ul className='logo'>
-          <li>Momba</li>
+          <li>
+            <h3>
+              Momba
+            </h3>
+          </li>
         </ul>
 
         <ul>
-          <li>Resources</li>
-          <li>Provider Directory</li>
-          <li>News & Blog</li>
-          <li>Log in</li>
-          <li>Sign up free</li>
+          <li>
+            <h3>Resources</h3>
+          </li>
+          <li>
+            <h3>
+              Provider Directory
+            </h3>
+          </li>
+          <li>
+            <h3>
+              News & Blog
+            </h3>
+          </li>
+          <li>
+            <h3>
+              Log in
+            </h3>
+          </li>
+          <li>
+            <h3>
+              Sign up free
+            </h3>
+          </li>
         </ul>
       </nav>
     );

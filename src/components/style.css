@@ -27,7 +27,7 @@ body {
 main {
   clear: both;
   padding-top: 150px;
-  color: grey;
+  color :#606060;
 }
 
 button {
@@ -36,7 +36,11 @@ button {
   background-color: inherit;
   padding: 15px;
   border: 2px solid #7B7BFF;
-  color: grey
+  color: #606060
+}
+
+.funnels {
+  padding: 200px;
 }
 
 .funnels h3 {
