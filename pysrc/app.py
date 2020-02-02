@@ -104,7 +104,7 @@ def response(user_response):
         return robo_response
 
 
-# In[9]:
+# In[10]:
 
 
 import twilio
@@ -117,42 +117,36 @@ app = Flask(__name__)
 
 @app.route('/bot', methods=['POST'])
 def bot():
-    flag=True
     epds_count = []
     #print("ROBO: My name is Robo. I will answer your queries about Postpartum depression. If you want to exit, type Bye!")
-    while(flag==True):
-        user_response = request.values.get('message', '')
-        user_response=user_response.lower()
-        robo_response = MessagingResponse()
-        msg = robo_response.message()
-        if(user_response!='bye'):
-            if(user_response=='thanks' or user_response=='thank you' ):
-                flag=False
-                msg.body("ROBO: You are welcome..")
-            elif(survey(user_response)!=None):
-                msg.body("In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:")
-                for item in SURVEY_QUESTIONS:
-                    msg.body(item)
-                    survey_response = request.values.get('message', '')
-                    while(survey_response != 'no' and survey_response != 'yes'):
-                        msg.body("Please enter a valid input:")
-                        survey_response = request.values.get('message', '')
-                    epds_count.append(SURVEY_ANSWERS[survey_response])
-                if(sum(epds_count) > 13):
-                    msg.body("Dont worry! You are not alone. At this time I recommend you seek medical advice from a general Physician.")
-                    flag=False
-                else:
-                    msg.body("Don't worry just take some time out for yourself and " + suggestions() + "!")
-                    flag = False
+    user_response = request.args['msg']
+    user_response=user_response.lower()
+    robo_response = MessagingResponse()
+    msg_1 = robo_response.message()
+    if(user_response!='bye'):
+        if(user_response=='thanks' or user_response=='thank you'):
+            msg_1.body("ROBO: You are welcome..")
+        elif(survey(user_response)!=''):
+            msg_1.body("In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:")
+            for item in SURVEY_QUESTIONS:
+                msg_1.body(item)
+                survey_response = request.args['msg']
+                while(survey_response != 'no' and survey_response != 'yes'):
+                    msg_1.body("Please enter a valid input:")
+                    survey_response = request.args['msg']
+                epds_count.append(SURVEY_ANSWERS[survey_response])
+            if(sum(epds_count) > 13):
+                msg_1.body("Dont worry! You are not alone. At this time I recommend you seek medical advice from a general Physician.")
             else:
-                if(greeting(user_response)!=None):
-                    msg.body("ROBO: "+greeting(user_response))
-                else:
-                    msg.body("ROBO: ",end="")
-                    msg.body(response(user_response))
-                    sent_tokens.remove(user_response)
+                msg_1.body("Don't worry just take some time out for yourself and " + suggestions() + "!")
         else:
-            flag=False
-            msg.body("ROBO: Bye! take care..")
-    return str(resp)
+            if(greeting(user_response)!=''):
+                msg_1.body("ROBO: "+greeting(user_response))
+            else:
+                msg_1.body("ROBO: ",end="")
+                msg_1.body(response(user_response))
+                sent_tokens.remove(user_response)
+    else:
+        msg_1.body("ROBO: Bye! take care..")
+    return str(robo_response)
 
