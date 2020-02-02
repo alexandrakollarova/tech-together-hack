@@ -13,7 +13,7 @@ class Funnels extends Component {
 
           <ul>
             <li>
-              <h2>1/7</h2>
+              <h2>1 / 7</h2>
               <p>
                 moms suffer from
                 <br />
