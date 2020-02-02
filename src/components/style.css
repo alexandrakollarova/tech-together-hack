@@ -100,8 +100,7 @@ main {
 }
 
 .funnels {
-  padding: 200px;
-  padding-bottom: 100px;
+  padding: 100px;
 }
 
 .funnels h1 {
@@ -119,7 +118,7 @@ main {
 }
 
 .funnels li h2 {
-  font-size: 40px;
+  font-size: 70px;
 }
 
 .funnels li p {
