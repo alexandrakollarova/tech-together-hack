@@ -2,47 +2,49 @@ import React, { Component } from 'react';
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 
-class Review extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props)
-    this.state = {
-      res: '',
-    };
-  }
+const Review = (props) => (
+  <div>
+    {props.res}
+  </div>
+);
 
-  componentWillMount() {
-    // const { steps } = this.props;
-    // const { res } = steps;
-
-    // this.setState({ res });
-  }
-
-  render() {
-    console.log(this.props)
-    const { res } = this.props;
-    //console.log(this.props)
-    return (
-      <div>
-        {res}
-      </div>
-    );
-  }
-}
 
 class ChatBox_try extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      msg: '',
       response: '',
-      active: false
+      active: false,
+      steps: [
+        {
+          id: "1",
+          message: "How are you today?",
+          trigger: "2"
+        },
+        {
+          id: "2",
+          user: true,
+          validator: msg => {
+            this.sendMessage(msg)
+            return true
+          },
+        },
+      ]
     };
   }
 
   sendMessage = (msg) => {
+    const lastStepId = parseInt(this.state.steps[this.state.steps.length - 1].id)
 
-    this.setState({ active: true });
+    const tempSteps = this.state.steps
+    tempSteps[this.state.steps.length - 1].trigger = (lastStepId + 1).toString()
+
+    const newStep = {
+      id: (lastStepId + 1).toString(),
+      trigger: (lastStepId + 2).toString()
+    }
+
+    //this.setState({ steps: [...this.state.steps, newStep] });
 
     fetch(`http://127.0.0.1:5000/bot?message=${msg}`, {
       method: 'POST',
@@ -58,6 +60,21 @@ class ChatBox_try extends Component {
       })
       .then((data) => {
         this.setState({ response: data.data });
+        newStep.message = data.data
+        //this.setState({ steps: [...this.state.steps, newStep] });
+        console.log(this.state)
+        const userStep = {
+          id: (lastStepId + 2).toString(),
+          user: true,
+          validator: msg => {
+            this.sendMessage(msg)
+            return true
+          }
+        }
+        tempSteps.push(newStep)
+        tempSteps.push(userStep)
+
+        this.setState({ steps: tempSteps });
       })
       .catch((error) => {
         console.log(error);
@@ -75,11 +92,11 @@ class ChatBox_try extends Component {
       userBubbleColor: '#fff',
       userFontColor: '#4a4a4a',
     };
-    console.log(this.state.active)
+
     return (
       <ThemeProvider theme={theme}>
         <ChatBot
-          steps={[
+          steps={this.state.steps}/*{[
             {
               id: "1",
               message: "How are you today?",
@@ -96,10 +113,10 @@ class ChatBox_try extends Component {
             },
             {
               id: "3",
-              component: <Review res={this.state.active ? this.state.response : 'got nothing'} />
+              component: this.state.response && <Review res={this.state.response} />
               //user: true
             }
-          ]}
+          ]} */
 
           style={{
             position: 'absolute',

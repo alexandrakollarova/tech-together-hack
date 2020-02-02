@@ -131,8 +131,8 @@ CORS(app)
 @app.route('/bot', methods=['POST'])
 def bot():
     epds_count = []
-    #print("ROBO: My name is Robo. I will answer your queries about Postpartum depression. If you want to exit, type Bye!")
-    user_response = request.args['msg']
+    # print("ROBO: My name is Robo. I will answer your queries about Postpartum depression. If you want to exit, type Bye!")
+    user_response = request.args['message']
     user_response = user_response.lower()
     robo_response = MessagingResponse()
     msg_1 = robo_response.message()
@@ -140,13 +140,13 @@ def bot():
         if(user_response == 'thanks' or user_response == 'thank you'):
             msg_1.body("ROBO: You are welcome..")
         elif(survey(user_response) != ''):
-            msg_1.body("In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:")
+            return jsonify({"data": "In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:"})
             for item in SURVEY_QUESTIONS:
                 msg_1.body(item)
-                survey_response = request.args['msg']
+                survey_response = request.args['message']
                 while(survey_response != 'no' and survey_response != 'yes'):
                     msg_1.body("Please enter a valid input:")
-                    survey_response = request.args['msg']
+                    survey_response = request.args['message']
                 epds_count.append(SURVEY_ANSWERS[survey_response])
             if(sum(epds_count) > 13):
                 msg_1.body(
@@ -163,4 +163,4 @@ def bot():
                 sent_tokens.remove(user_response)
     else:
         msg_1.body("ROBO: Bye! take care..")
-    return str(robo_response)
+    return jsonify({"data": str(robo_response)})
