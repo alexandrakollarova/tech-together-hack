@@ -16,7 +16,11 @@ class Main extends Component {
               <br />
               and personal guide for postpartum
             </h1>
-            <button type="button" className="btn-how-it-works">
+            <button
+              type="button"
+              className="btn-how-it-works"
+              onClick={(e) => this.props.handleClick(e)}
+            >
               <h2>How it works</h2>
             </button>
           </div>

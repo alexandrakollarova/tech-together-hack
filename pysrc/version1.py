@@ -4,19 +4,14 @@
 # In[1]:
 
 
-from flask import jsonify
-from flask_cors import CORS
-from twilio.twiml.messaging_response import MessagingResponse
-from flask import request
-from flask import Flask
-import twilio
-import requests
+from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 import numpy as np
 import random
 import string  # to process standard python strings
+
 
 # In[2]:
 
@@ -29,8 +24,9 @@ raw = raw.lower()  # converts to lowercase
 
 # In[3]:
 
-# nltk.download('punkt')  # first-time use only
-# nltk.download('wordnet')  # first-time use only
+
+# nltk.download('punkt') # first-time use only
+# nltk.download('wordnet') # first-time use only
 
 
 # In[4]:
@@ -87,7 +83,6 @@ def greeting(sentence):
 
 
 def survey(sentence):
-    print(sentence)
     for word in sentence.split():
         if word.lower() in SURVEY_INIT:
             return ("would you mind if I ask you a couple of questions..")
@@ -106,7 +101,7 @@ def suggestions():
 def response(user_response):
     robo_response = ''
     sent_tokens.append(user_response)
-    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize)
+    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english')
     tfidf = TfidfVec.fit_transform(sent_tokens)
     vals = cosine_similarity(tfidf[-1], tfidf)
     idx = vals.argsort()[0][-2]
@@ -121,62 +116,46 @@ def response(user_response):
         return robo_response
 
 
-# In[9]:
+# In[ ]:
 
 
-app = Flask(__name__)
-CORS(app)
-
-
-@app.route('/bot', methods=['POST'])
-def bot():
-    flag = True
-    epds_count = []
-    #print("ROBO: My name is Robo. I will answer your queries about Postpartum depression. If you want to exit, type Bye!")
-    while(flag == True):
-        user_response = request.args['message']
-        #print("MESSAGE: ", user_response)
-        user_response = user_response.lower()
-
-        robo_response = MessagingResponse()
-
-        msg = robo_response.message()
-
-        if(user_response != 'bye'):
-            if(user_response == 'thanks' or user_response == 'thank you'):
-                flag = False
-                msg.body("ROBO: You are welcome..")
-            elif (survey(user_response) != ""):
-
-                print("I GOT HERE")
-                return jsonify({"data": "In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:"})
-                for item in SURVEY_QUESTIONS:
-                    msg.body(item)
-                    survey_response = request.values.get('message', '')
-                    while(survey_response != 'no' and survey_response != 'yes'):
-                        msg.body("Please enter a valid input:")
-                        survey_response = request.values.get('message', '')
-                    epds_count.append(SURVEY_ANSWERS[survey_response])
-                if(sum(epds_count) > 13):
-                    msg.body(
-                        "Dont worry! You are not alone. At this time I recommend you seek medical advice from a general Physician.")
-                    flag = False
-                else:
-                    msg.body(
-                        "Don't worry just take some time out for yourself and " + suggestions() + "!")
-                    flag = False
-            else:
-
-                if (greeting(user_response) != None):
-
-                    msg.body("ROBO: " + greeting(user_response))
-
-                else:
-                    msg.body("ROBO: ", end="")
-                    msg.body(response(user_response))
-                    sent_tokens.remove(user_response)
-        else:
+flag = True
+epds_count = []
+print("ROBO: My name is Robo. I will answer your queries about Postpartum depression. If you want to exit, type Bye!")
+while(flag == True):
+    user_response = input()
+    user_response = user_response.lower()
+    if(user_response != 'bye'):
+        if(user_response == 'thanks' or user_response == 'thank you'):
             flag = False
-            msg.body("ROBO: Bye! take care..")
-            print(str(robo_response))
-    return jsonify({"data": str(robo_response)})
+            print("ROBO: You are welcome..")
+        elif(survey(user_response) != None):
+            print("In order for us to help you better, we would like to ask you a few question.\nPlease answer it with a yes or a no based on how you have felt in the past 7 days:")
+            for item in SURVEY_QUESTIONS:
+                print(item)
+                survey_response = input()
+                while(survey_response != 'no' and survey_response != 'yes'):
+                    print("Please enter a valid input:")
+                    survey_response = input()
+                epds_count.append(SURVEY_ANSWERS[survey_response])
+            if(sum(epds_count) > 13):
+                print(
+                    "Dont worry! You are not alone. At this time I recommend you seek medical advice from a general Physician.")
+                flag = False
+            else:
+                print(
+                    "Don't worry just take some time out for yourself and " + suggestions() + "!")
+                flag = False
+        else:
+            if(greeting(user_response) != None):
+                print("ROBO: "+greeting(user_response))
+            else:
+                print("ROBO: ", end="")
+                print(response(user_response))
+                sent_tokens.remove(user_response)
+    else:
+        flag = False
+        print("ROBO: Bye! take care..")
+
+
+# In[ ]:

@@ -25,7 +25,7 @@ export default class Home extends Component {
         <Header />
         {this.state.active && <ChatBox_try />}
 
-        <Main />
+        <Main handleClick={this.handleChatClick} />
         <Funnels handleClick={this.handleChatClick} />
         <Services />
       </div>
