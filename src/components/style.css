@@ -11,8 +11,7 @@ body {
 .bg {
   position: absolute;
   z-index: -1;
-  width: 55%;
-  margin-left: 685px;
+  width: 100%;
 }
 
 .main-nav ul {
@@ -131,12 +130,13 @@ main {
   width: 50%;
   height: 500px;
   color: #7b7bff;
-  padding-left: 150px;
-  padding-top: 30px;
+  padding-left: 200px;
+  padding-top: 50px;
+  margin-top: 135px;
 }
 
 .services-headline h2 {
-  font-size: 100px;
+  font-size: 90px;
 }
 
 .services-list {
@@ -145,6 +145,7 @@ main {
   width: 50%;
   height: 500px;
   margin-bottom: 300px;
+  margin-top: 135px;
 }
 
 .services-list ul {
