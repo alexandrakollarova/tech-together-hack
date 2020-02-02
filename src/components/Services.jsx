@@ -19,16 +19,16 @@ class Services extends Component {
 
         <div className='services-list'>
           <ul>
-            <li>Hundreds of meditation</li>
+            <li>Hundreds of meditation sessions</li>
             <li>Personal guideline for your wellness</li>
             <li>Support for your spouse and family members</li>
-            <li>Providers taht tailor to your own words</li>
+            <li>Provideers that tailor to your own words</li>
             <li>Unique daily exercise to enhance mental health</li>
           </ul>
           <button type='button' className='btn-explore'>
-            <p>
+            <h2>
               Explore our services
-            </p>
+            </h2>
           </button>
         </div>
       </div>

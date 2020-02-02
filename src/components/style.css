@@ -8,6 +8,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.bg {
+  position: absolute;
+  z-index: -1;
+  width: 70%;
+  margin-left: 500px;
+ 
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -19,6 +27,8 @@ body {
 
 .main-nav h2 {
   color :#606060;
+  font-weight: 300;
+  font-size: 20px;
 }
 
 .main-nav li {
@@ -28,15 +38,19 @@ body {
 
 .main-nav .logo {
   float: left;
-  font-size: 25px;
-  margin-top: 20px
+}
+
+.logo h2 {
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: -5px;
 }
 
 .logo span {
   color: #7B7BFF;
-  font-size: 70px;
+  font-size: 50px;
   position: absolute;
-  top: 15px;
+  top: 33px;
 }
 
 main {
@@ -54,6 +68,10 @@ main {
   border: 2px solid #7B7BFF;
   color: #606060;
   margin-top: 30px;
+}
+
+.btn-how-it-works h2 {
+  font-weight: 300;
 }
 
 .btn-sign-up {
@@ -76,7 +94,10 @@ main {
   font-size: inherit;
   margin-top: 50px;
   margin-left: 270px;
-  font-weight: 600;
+}
+
+.btn-explore h2 {
+  font-size: 20px;
 }
 
 .funnels {
@@ -112,7 +133,7 @@ main {
   height: 500px;
   color: #7B7BFF;
   padding-left: 150px;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
 .services-headline h2 {

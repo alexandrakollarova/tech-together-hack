@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import bg from '../assets/bg.png'
 
 class Header extends Component {
   constructor(props) {
@@ -9,6 +10,8 @@ class Header extends Component {
   render() {
     return (
       <nav className='main-nav'>
+        <img src={bg} alt='background' className='bg' />
+
         <ul className='logo'>
           <li>
             <h2 style={{ color: 'black' }}>

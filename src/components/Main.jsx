@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import final_image from "../assets/final_image.png";
+//import final_image from "../assets/final_image.png";
 
 class Main extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Main extends Component {
             </button>
           </div>
           <div className="right-panel">
-            <img src={final_image} alt=""></img>
+            {/* <img src={final_image} alt=""></img> */}
           </div>
         </div>
       </main>
