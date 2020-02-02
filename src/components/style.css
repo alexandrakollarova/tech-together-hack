@@ -197,3 +197,8 @@ main {
   width: 100%;
   text-align: center;
 }
+
+.btn-chat {
+  border-style: none;
+  background-color: inherit;
+}

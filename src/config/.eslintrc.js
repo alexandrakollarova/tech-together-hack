@@ -18,7 +18,8 @@ module.exports = {
     "react/jsx-uses-vars": [2],
   },
   "plugins": [
-    "react"
+    "react",
+    '@babel/plugin-proposal-class-properties'
   ],
   "parser": "babel-eslint",
   "parserOptions": {

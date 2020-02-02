@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import Mom_Baby from "../assets/Mom_Baby.png";
 import Chat from "../assets/Chat.png";
+
 class Funnels extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     return (
       <div className="funnelContainer">
@@ -13,7 +10,13 @@ class Funnels extends Component {
           <div className="fullWidthContainer">
             <span>Did you know?</span>
             <span className="chatIcon">
-              <img src={Chat} alt="" />
+              <button
+                type='button'
+                onClick={(e) => this.props.handleClick(e)}
+                className='btn-chat'
+              >
+                <img src={Chat} alt="message-icon" />
+              </button>
             </span>
           </div>
           <ul>

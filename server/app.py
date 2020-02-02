@@ -8,16 +8,10 @@ app = Flask(__name__, static_folder='../build')
 CORS(app)
 
 ##
-# API routes
+# API route
 ##
 
-# @app.route('/')
-# def hello_world():
-#   print('Im running!!!!!!!!!!')
-#   return 'Hello, World!'
-
-
-@app.route('/', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def process():
   msg=request.args['msg']
   print("MESSAGE: ", msg)

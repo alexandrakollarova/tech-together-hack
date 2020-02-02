@@ -3,22 +3,31 @@ import Header from "./Header";
 import Main from "./Main";
 import Funnels from "./Funnels";
 import Services from "./Services";
-import Chatbox_try from "./Chatbox_try";
+import ChatBox_try from './ChatBox_try';
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      active: false
+    };
+  }
+
+  handleChatClick = (e) => {
+    e.preventDefault()
+
+    this.setState({ active: true });
   }
 
   render() {
     return (
       <div>
         <Header />
+        {this.state.active && <ChatBox_try />}
+
         <Main />
-        <Funnels />
+        <Funnels handleClick={this.handleChatClick} />
         <Services />
-        <Chatbox_try />
       </div>
     );
   }
