@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Component } from 'react';
 import ChatBot from "react-simple-chatbot";
 
 class ChatBox_try extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      msg: ''
+      msg: '',
+      response: ''
     };
   }
 
@@ -25,8 +26,7 @@ class ChatBox_try extends React.Component {
         }
       })
       .then((data) => {
-        // const newCollectionList = this.state.collectionList.concat([place]);
-        // this.setState({ collectionList: newCollectionList });
+        this.setState({ resonse: data });
       })
       .catch((error) => {
         console.log(error);
@@ -34,20 +34,27 @@ class ChatBox_try extends React.Component {
   }
 
   render() {
+
     return (
       <ChatBot
         steps={[
           {
-            id: "0",
-            message: "Welcome to react chatbot!",
-            trigger: "1"
+            id: "1",
+            message: "How are you today?",
+            trigger: "msg"
           },
           {
-            id: "1",
-            message: "Bye!",
-            end: true
+            id: "msg",
+            user: true,
+            trigger: '2',
+            validator: msg => this.sendMessage(msg),
+          },
+          {
+            id: "2",
+            message: "That's awesome!",
           }
         ]}
+
         style={{
           position: 'absolute',
           left: '1000px',
