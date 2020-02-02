@@ -41,18 +41,22 @@ class ChatBox_try extends React.Component {
           {
             id: "1",
             message: "How are you today?",
-            trigger: "msg"
-          },
-          {
-            id: "msg",
-            user: true,
-            trigger: '2',
-            validator: msg => this.sendMessage(msg),
+            trigger: "2"
           },
           {
             id: "2",
-            message: "That's awesome!",
-          }
+            user: true,
+            validator: msg => {
+              this.sendMessage(msg)
+
+              return true
+            }
+            //trigger: '1',
+          },
+          // {
+          //   id: "2",
+          //   message: "That's awesome!",
+          // }
         ]}
 
         style={{
