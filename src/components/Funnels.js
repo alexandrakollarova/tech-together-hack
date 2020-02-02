@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Mom_Baby from "../assets/Mom_Baby.png";
+import Chat from "../assets/Chat.png";
 class Funnels extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +10,12 @@ class Funnels extends Component {
     return (
       <div className="funnelContainer">
         <div className="funnels">
-          <h1>Did you know?</h1>
-
+          <div className="fullWidthContainer">
+            <span>Did you know?</span>
+            <span className="chatIcon">
+              <img src={Chat} alt="" />
+            </span>
+          </div>
           <ul>
             <li>
               <h2>1 / 7</h2>

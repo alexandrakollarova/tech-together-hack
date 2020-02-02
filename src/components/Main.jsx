@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-//import final_image from "../assets/final_image.png";
+import React, { Component } from "react";
+import final_image from "../assets/final_image.png";
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
   render() {
     return (
@@ -21,7 +21,7 @@ class Main extends Component {
             </button>
           </div>
           <div className="right-panel">
-            {/* <img src={final_image} alt=""></img> */}
+            <img src={final_image} alt=""></img>
           </div>
         </div>
       </main>

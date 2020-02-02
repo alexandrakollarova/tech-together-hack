@@ -19,25 +19,45 @@
     "lint-py": "pylint server/app.py",
     "lint": "npm run lint-js && npm run lint-py",
     "jest": "jest",
-    "test": "npm run build && npm run lint && npm run jest && pytest"
+    "test": "npm run build && npm run lint && npm run jest && pytest",
+    "prepublish": "npm run build",
+    "prepush": "npm run lint && npm run test:coverage",
+    "prettier-watch": "onchange '**/*.js' '**/*.jsx' -- prettier --write {{changed}}",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "nyc npm test",
+    "analyze": "BUNDLE_ANALYZE=true ./node_modules/.bin/webpack --config webpack.config.prod.js -p"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
     "babel-polyfill": "^6.26.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "flatted": "^2.0.0",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.9.0",
+    "onchange": "^5.2.0",
+    "prettier": "^1.16.4",
+    "prop-types": "^15.6.0",
+    "random-id": "0.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "react-simple-chatbot": "^0.6.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.17.0",
-    "babel-eslint": "^10.0.3",
+    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "babel-eslint": "^10.0.3",
     "babel-preset-react-hmre": "^1.1.1",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",
@@ -58,7 +78,13 @@
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "styled-components": "^4.1.3"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.0.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "babel": {
     "presets": [
