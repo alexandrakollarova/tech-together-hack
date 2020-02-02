@@ -11,8 +11,7 @@ body {
 .bg {
   position: absolute;
   z-index: -1;
-  width: 55%;
-  margin-left: 685px;
+  width: 100%;
 }
 
 .main-nav ul {
@@ -54,7 +53,7 @@ body {
 
 main {
   clear: both;
-  padding-top: 150px;
+  padding-top: 100px;
   color: #606060;
   padding-left: 100px;
 }
@@ -101,11 +100,21 @@ main {
 
 .funnels {
   padding: 100px;
+  padding-top: 0px;
 }
 
 .funnels h1 {
   text-align: center;
   font-size: 35px;
+}
+
+.funnels span {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.funnels .chatIcon {
+  float: right;
 }
 
 .funnels ul {
@@ -131,12 +140,13 @@ main {
   width: 50%;
   height: 500px;
   color: #7b7bff;
-  padding-left: 150px;
-  padding-top: 30px;
+  padding-left: 200px;
+  padding-top: 50px;
+  margin-top: 135px;
 }
 
 .services-headline h2 {
-  font-size: 100px;
+  font-size: 90px;
 }
 
 .services-list {
@@ -145,6 +155,7 @@ main {
   width: 50%;
   height: 500px;
   margin-bottom: 300px;
+  margin-top: 135px;
 }
 
 .services-list ul {
@@ -160,7 +171,7 @@ main {
 
 .Container {
   width: 100%;
-  height: 300px;
+  height: 400px;
 }
 .Container .left-panel {
   width: 50%;
@@ -174,11 +185,15 @@ main {
   padding-right: 70px;
 }
 .Container .right-panel img {
-  width: 300px;
   height: 300px;
 }
 
 .imageContainer {
   text-align: center;
   padding-bottom: 100px;
+}
+
+.fullWidthContainer {
+  width: 100%;
+  text-align: center;
 }
